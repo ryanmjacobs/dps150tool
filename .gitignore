@@ -3,5 +3,6 @@ dps150tool
 dps150tool.o
 
 # archlinux makepkg artifacts
-.SRCINFO
+pkg/
 *.log
+.SRCINFO

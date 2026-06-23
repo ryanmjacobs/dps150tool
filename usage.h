@@ -4,7 +4,7 @@
 static const char *DETAILED_USAGE =
 "OPTIONS\n"
 "  -h              Display this help message\n"
-"  -d <device>     Specify the serial device (default:  /dev/ttyUSB0 )\n"
+"  -d <device>     Specify the serial device (default: /dev/ttyUSB0)\n"
 "  -u <voltage>    Set output voltage (0.0 to 30.0 V)\n"
 "  -i <current>    Set output current (0.0 to 5.0 A)\n"
 "  -x 0,1          Disable or enable Over Voltage Protection (OVP)\n"
