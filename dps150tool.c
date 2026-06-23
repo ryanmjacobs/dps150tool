@@ -44,6 +44,8 @@
 
 #define SOFTWARE_VERSION "1.0"
 
+#include "usage.h"
+
 /**
  * Check if a specific bit is set in an integer value
  * @param value The integer value to check
@@ -288,13 +290,12 @@ void close_serial(int disconnect) {
 /**
  * Print usage
  */
-void usage(const char *program_name) {
-  fprintf(stderr,
+void usage(const char *program_name, FILE *stream) {
+  fprintf(stream,
           "Usage: %s [-d device] [-u voltage] [-i current] [-x 0|1] [-y "
           "0|1] [-U] [-I] [-P] [-V] [-o 0|1] [-z] [-v]\n"
-          "Version: %s\n",
-          program_name, SOFTWARE_VERSION);
-  exit(EXIT_FAILURE);
+          "Version: %s\n\n%s",
+          program_name, SOFTWARE_VERSION, DETAILED_USAGE);
 }
 
 int main(int argc, char *argv[]) {
@@ -306,11 +307,16 @@ int main(int argc, char *argv[]) {
   debug = 0;
 
   if (argc == 1) {
-    usage(argv[0]);
+    usage(argv[0], stderr);
+    exit(EXIT_FAILURE);
   }
 
-  while ((opt = getopt(argc, argv, "d:u:i:x:y:UIPVo:zv")) != -1) {
+  while ((opt = getopt(argc, argv, "hd:u:i:x:y:UIPVo:zv")) != -1) {
     switch (opt) {
+    case 'h':
+      usage(argv[0], stdout);
+      exit(EXIT_SUCCESS);
+      break;
     case 'd':
       device = optarg;
       break;
@@ -348,7 +354,8 @@ int main(int argc, char *argv[]) {
       debug = 1;
       break;
     default:
-      usage(argv[0]);
+      fprintf(stderr, "error: invalid option '%c'", opt);
+      exit(EXIT_FAILURE);
     }
   }
 

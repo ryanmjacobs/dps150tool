@@ -70,6 +70,7 @@ Then log out and back in.
 
 | Option | Description |
 |--------|-------------|
+| `-h`              | Display help message |
 | `-d <device>`     | Specify the serial device (default: `/dev/ttyUSB0`) |
 | `-u <voltage>`    | Set output voltage (0.0 to 30.0 V) |
 | `-i <current>`    | Set output current (0.0 to 5.0 A) |

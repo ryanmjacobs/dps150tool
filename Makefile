@@ -6,7 +6,7 @@ OBJS    = $(SRCS:.c=.o)
 
 all: $(TARGET)
 
-$(TARGET): $(OBJS)
+$(TARGET): usage.h $(OBJS)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS) -lpthread
 
 %.o: %.c
