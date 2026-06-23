@@ -15,7 +15,6 @@
  * DEALINGS IN THE SOFTWARE.
  *
  *****************************************************************************/
-#include <errno.h>
 #include <fcntl.h>
 #include <pthread.h>
 #include <stdint.h>
