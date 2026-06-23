@@ -1,8 +1,8 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -O2 -pthread
-TARGET = dps150tool
-SRCS = dps150tool.c
-OBJS = $(SRCS:.c=.o)
+CC     ?= gcc
+CFLAGS ?= -Wall -Wextra -O2 -pthread
+TARGET  = dps150tool
+SRCS    = dps150tool.c
+OBJS    = $(SRCS:.c=.o)
 
 all: $(TARGET)
 
