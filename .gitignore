@@ -1,2 +1,7 @@
+# build artifacts
 dps150tool
 dps150tool.o
+
+# archlinux makepkg artifacts
+.SRCINFO
+*.log
